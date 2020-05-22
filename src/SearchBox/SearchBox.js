@@ -4,7 +4,6 @@ import './SearchBox.css';
 class SearchBox extends Component {
   formatQueryParams(params) {
     const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-    console.log(queryItems.join('&'));
     return queryItems.join('&');
   }
 
@@ -40,7 +39,7 @@ class SearchBox extends Component {
     }
 
     const fetchUrl = url + this.formatQueryParams(params);
-
+    console.log('getting new search');
     fetch(fetchUrl, options)
       .then(res => {
         if(!res.ok) {
